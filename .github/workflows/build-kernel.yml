@@ -257,6 +257,10 @@ jobs:
     - name: Set cpio permissions
       run: chmod +x $GITHUB_WORKSPACE/kernel_workspace/android-kernel/tools/build/cpio
 
+    - name: Fix i2sctrl usage
+      run: |
+          sed -i '/uint8_t i2sctrl;/a volatile int dummy = i2sctrl;' $GITHUB_WORKSPACE/kernel_workspace/android-kernel/sound/soc/codecs/fs1815/fsm_core.c
+
     - name: Build kernel
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
