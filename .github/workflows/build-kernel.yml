@@ -252,13 +252,12 @@ jobs:
       run: chmod +x $GITHUB_WORKSPACE/kernel_workspace/android-kernel/arch/arm64/kernel/vdso/*.sh
 
     - name: Set executable permissions for specific paths
-    run: |
-    chmod +x $GITHUB_WORKSPACE/kernel_workspace/android-kernel/scripts/* \
+      run: chmod +x $GITHUB_WORKSPACE/kernel_workspace/android-kernel/scripts/* \
              $GITHUB_WORKSPACE/kernel_workspace/android-kernel/arch/arm64/kernel/vdso/*.sh \
              $GITHUB_WORKSPACE/kernel_workspace/android-kernel/tools/build/cpio
 
     - name: Set executable permissions recursively
-    run: chmod -R +x $GITHUB_WORKSPACE/kernel_workspace/android-kernel/
+      run: chmod -R +x $GITHUB_WORKSPACE/kernel_workspace/android-kernel/
 
     - name: Build kernel
       run: |
